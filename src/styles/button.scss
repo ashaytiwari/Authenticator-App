@@ -1,0 +1,30 @@
+.application-themed-button {
+  border-radius: var(--application-border-radius);
+  color: #fff;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  border: 0;
+  padding: 12px;
+  height: 40px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: stretch;
+  background-color: var(--application-primary-color);
+  user-select: none;
+  width: 100%;
+  box-shadow: 5px 3px 10px -5px #888;
+
+  &:hover {
+    background-color: var(--application-secondary-color);
+    color: var(--application-primary-color);
+  }
+
+  &:active {
+    background-color: var(--application-primary-color);
+  }
+}

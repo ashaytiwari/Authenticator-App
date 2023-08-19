@@ -1,0 +1,38 @@
+input,
+select,
+textarea {
+  border: 1px solid var(--application-tertiary-color);
+  border-radius: var(--application-border-radius);
+  padding: 10px;
+  background-color: inherit;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 19px;
+  outline: none;
+
+  &:placeholder {
+    color: var(--application-tertiary-color);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:focus,
+  &:hover {
+    border-color: var(--application-primary-color);
+  }
+
+  &.error {
+    border: 1px solid var(--application-error-color);
+  }
+
+}
+
+.form-error-message {
+  font-size: 12px;
+  color: var(--application-error-color);
+  margin: 0;
+  font-style: italic;
+}

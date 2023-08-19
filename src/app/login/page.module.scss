@@ -1,0 +1,73 @@
+@import '@/styles/media-query.scss';
+
+#loginPageMain {
+  background-color: var(--application-secondary-background-color);
+  display: grid;
+  grid-auto-columns: 50%;
+  grid-auto-flow: column;
+  height: calc(100vh - 40px);
+  padding: 20px;
+
+  #loginCoverImageSection {
+    background-color: var(--application-primary-background-color);
+    border-radius: 20px;
+    position: relative;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #loginFormSection {
+    padding: 20px 35px;
+
+    .registerNowLabel {
+      font-size: 16px;
+      color: var(--application-tertiary-color);
+    }
+
+    .registerNowControl {
+      color: var(--application-primary-color);
+      text-decoration: none;
+    }
+
+    .loginForm {
+      .formHeadingSection {
+        text-align: center;
+
+        .heading {
+          font-size: 35px;
+          margin: 10px;
+          color: var(--application-text-color)
+        }
+
+        .subHeading {
+          font-size: 16px;
+          color: var(--application-tertiary-color);
+        }
+      }
+    }
+  }
+
+}
+
+@include medium-screen {
+  #loginPageMain {
+    grid-auto-columns: 100%;
+    grid-auto-flow: row;
+    height: 100%;
+    min-height: calc(100vh - 40px);
+
+    #loginCoverImageSection {
+      display: none;
+    }
+  }
+}
+
+@include small-screen {
+  #loginPageMain {
+    #loginFormSection {
+      padding: 20px;
+    }
+  }
+}
