@@ -4,11 +4,27 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { useFormik } from 'formik';
+
+import SecureInputField from '@/components/generics/secure-input-field/SecureInputField';
+
 import loginCoverImage from '@/assets/images/login-cover-image.png';
 
 import styles from './page.module.scss';
 
 function LoginPage() {
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: ''
+    },
+    validate: () => { },
+    onSubmit: () => {
+      alert(JSON.stringify(formikValues));
+    }
+  });
+  const formikValues = formik.values;
 
   function renderRegisterNowLinkControl() {
 
@@ -24,10 +40,44 @@ function LoginPage() {
     );
   }
 
+  function renderPasswordFieldContainer() {
+
+    const secureInputFieldControlAttributes = {
+      placeholder: 'Password',
+      name: 'password',
+      className: styles.passwordField,
+      value: formikValues.password,
+      onChange: formik.handleChange
+    };
+
+    const forgotPasswordControlAttributes = {
+      href: '/',
+      className: styles.forgotPasswordLink
+    };
+
+    return (
+      <div className={styles.passwordFieldContainer}>
+        <SecureInputField {...secureInputFieldControlAttributes} />
+        <Link {...forgotPasswordControlAttributes}>Forgot Password?</Link>
+      </div>
+    );
+  }
+
   function renderLoginForm() {
 
     const singInControlAttributes = {
-      className: 'application-themed-button'
+      className: 'application-themed-button',
+      onClick() {
+        formik.handleSubmit();
+      }
+    };
+
+    const emailControlAttributes = {
+      placeholder: 'Enter email',
+      name: 'email',
+      value: formikValues.email,
+      className: styles.emailControl,
+      onChange: formik.handleChange
     };
 
     return (
@@ -37,7 +87,9 @@ function LoginPage() {
           <label className={styles.subHeading}>Welcome back you have been missed</label>
         </div>
         <div className={styles.loginFormContainer}>
-          <button {...singInControlAttributes}>Sign in</button>
+          <input {...emailControlAttributes} />
+          {renderPasswordFieldContainer()}
+          <button {...singInControlAttributes} type='button'>Sign in</button>
         </div>
       </div>
     );

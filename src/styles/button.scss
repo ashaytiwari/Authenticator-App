@@ -17,7 +17,7 @@
   background-color: var(--application-primary-color);
   user-select: none;
   width: 100%;
-  box-shadow: 5px 3px 10px -5px #888;
+  box-shadow: var(--application-box-shadow);
 
   &:hover {
     background-color: var(--application-secondary-color);

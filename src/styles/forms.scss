@@ -9,6 +9,8 @@ textarea {
   font-size: 15px;
   line-height: 19px;
   outline: none;
+  width: calc(100% - 20px);
+  background-color: var(--application-white-color);
 
   &:placeholder {
     color: var(--application-tertiary-color);

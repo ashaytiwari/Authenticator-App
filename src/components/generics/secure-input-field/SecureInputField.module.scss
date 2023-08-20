@@ -1,0 +1,25 @@
+.secureInputFieldMain {
+  width: calc(100% - 20px);
+  border: solid 1px var(--application-tertiary-color);
+  border-radius: var(--application-border-radius);
+  padding: 10px;
+  display: grid;
+  grid-template-columns: auto 40px;
+  background-color: var(--application-white-color);
+
+  .inputControl,
+  .inputControl:focus {
+    padding: 0;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .showHideControl {
+    border: none;
+    outline: none;
+    background-color: inherit;
+  }
+
+}
