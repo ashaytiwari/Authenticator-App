@@ -1,0 +1,94 @@
+@import '@/styles/media-query.scss';
+
+#signupPageMain {
+  background-color: var(--application-secondary-background-color);
+  display: grid;
+  grid-auto-columns: 50%;
+  grid-auto-flow: column;
+  height: calc(100vh - 40px);
+  padding: 20px;
+
+  #signupCoverImageSection {
+    background-color: var(--application-primary-background-color);
+    border-radius: 20px;
+    position: relative;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #signupFormSection {
+    padding: 20px 35px;
+
+    .alreadyHaveAnAccountLabel {
+      font-size: 16px;
+      color: var(--application-tertiary-color);
+    }
+
+    .loginControl {
+      color: var(--application-primary-color);
+      text-decoration: none;
+    }
+
+    .signupForm {
+      .formHeadingSection {
+        text-align: center;
+        margin-top: 80px;
+
+        .heading {
+          font-size: 35px;
+          margin: 10px;
+          color: var(--application-text-color)
+        }
+
+        .subHeading {
+          font-size: 16px;
+          color: var(--application-tertiary-color);
+        }
+      }
+
+      .signupFormContainer {
+        display: grid;
+        grid-template-rows: max-content;
+        row-gap: 25px;
+        padding: 40px 70px;
+
+        .formControls,
+        .passwordField {
+          border: none;
+          box-shadow: var(--application-box-shadow);
+        }
+
+      }
+    }
+  }
+
+}
+
+@include medium-screen {
+  #signupPageMain {
+    grid-auto-columns: 100%;
+    grid-auto-flow: row;
+    height: 100%;
+    min-height: calc(100vh - 40px);
+
+    #signupCoverImageSection {
+      display: none;
+    }
+  }
+}
+
+@include small-screen {
+  #signupPageMain {
+    #signupFormSection {
+      padding: 20px;
+
+      .signupForm {
+        .signupFormContainer {
+          padding: 30px 0;
+        }
+      }
+    }
+  }
+}
