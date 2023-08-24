@@ -1,10 +1,10 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 import bcrypt from 'bcryptjs';
 
 import { connect } from '@/dbConfig/dbConfig';
 import User from '@/models/userModel';
 
-import apiMessages from '@/constants/apiMessages';
+import messages from '@/constants/messages';
 
 import { validateEmail, validatePassword } from '@/utilities/validators';
 import ResponseHandler from '@/utilities/responseHandler';
@@ -18,26 +18,26 @@ export async function POST(request: NextRequest) {
     const { username, email, password } = requestBody;
 
     if (!username) {
-      return ResponseHandler.validationError(apiMessages.usernameRequired, null);
+      return ResponseHandler.validationError(messages.usernameRequired, null);
     }
 
     if (!email) {
-      return ResponseHandler.validationError(apiMessages.emailRequired, null);
+      return ResponseHandler.validationError(messages.emailRequired, null);
     } else if (validateEmail(email) === true) {
-      return ResponseHandler.validationError(apiMessages.emailInvalid, null);
+      return ResponseHandler.validationError(messages.emailInvalid, null);
     }
 
     if (!password) {
-      return ResponseHandler.validationError(apiMessages.passwordRequired, null);
+      return ResponseHandler.validationError(messages.passwordRequired, null);
     } else if (validatePassword(password) === true) {
-      return ResponseHandler.validationError(apiMessages.passwordRequired, null);
+      return ResponseHandler.validationError(messages.passwordMustBeSixChar, null);
     }
 
     // checking user exists
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
-      return ResponseHandler.validationError(apiMessages.userAlreadyExists, null);
+      return ResponseHandler.validationError(messages.userAlreadyExists, null);
     }
 
     // hashing password
@@ -47,9 +47,9 @@ export async function POST(request: NextRequest) {
     const newUser = new User({ username, email, password: hashedPassword });
     const savedUser = await newUser.save();
 
-    return ResponseHandler.success(apiMessages.userAccountSuccessfullyCreated, savedUser);
+    return ResponseHandler.success(messages.userAccountSuccessfullyCreated, savedUser);
 
   } catch (error: any) {
-    return ResponseHandler.serverError(apiMessages.internalServerError, null);
+    return ResponseHandler.serverError(messages.internalServerError, error);
   }
 }

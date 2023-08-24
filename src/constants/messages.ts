@@ -1,4 +1,4 @@
-const apiMessages = {
+const messages = {
   usernameRequired: 'Username is required',
   emailRequired: 'Email is required',
   emailInvalid: 'Invalid email',
@@ -9,4 +9,4 @@ const apiMessages = {
   internalServerError: 'Internal Server Error'
 };
 
-export default apiMessages;
+export default messages;

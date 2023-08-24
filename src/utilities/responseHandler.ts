@@ -8,7 +8,7 @@ class ResponseHandler {
   constructor() { }
 
   static success(message: string, data: any) {
-    NextResponse.json({
+    return NextResponse.json({
       message,
       statusCode: statusCodes.SUCCESS,
       status: status.SUCCESS,
@@ -17,7 +17,7 @@ class ResponseHandler {
   }
 
   static validationError(message: string, data: any) {
-    NextResponse.json({
+    return NextResponse.json({
       message,
       statusCode: statusCodes.UNPROCESSABLE,
       status: status.ERROR,
@@ -26,7 +26,7 @@ class ResponseHandler {
   }
 
   static serverError(message: string, data: any) {
-    NextResponse.json({
+    return NextResponse.json({
       message,
       statusCode: statusCodes.INTERNAL_SERVER_ERROR,
       status: status.ERROR,
@@ -35,7 +35,7 @@ class ResponseHandler {
   }
 
   static unauthorized(message: string, data: any) {
-    NextResponse.json({
+    return NextResponse.json({
       message,
       statusCode: statusCodes.UNAUTHORIZED,
       status: status.ERROR,
@@ -44,7 +44,7 @@ class ResponseHandler {
   }
 
   static forbidden(message: string, data: any) {
-    NextResponse.json({
+    return NextResponse.json({
       message,
       statusCode: statusCodes.FORBIDDEN,
       status: status.ERROR,
