@@ -6,7 +6,9 @@ const messages = {
   passwordMustBeSixChar: 'Password must be six or more characters',
   userAlreadyExists: 'User with this email address already exists',
   userAccountSuccessfullyCreated: 'User account successfully created',
-  internalServerError: 'Internal Server Error'
+  internalServerError: 'Internal Server Error',
+  userWithThisEmailNotExists: 'User with this email does not exists',
+  loginSuccessful: 'Login Successful'
 };
 
 export default messages;
