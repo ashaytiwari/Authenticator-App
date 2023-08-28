@@ -1,12 +1,16 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { useFormik } from 'formik';
 
+import { userLogin } from '@/services/auth';
+
 import SecureInputField from '@/components/generics/secure-input-field/SecureInputField';
+import Spinner from '@/components/generics/spinner/Spinner';
 
 import loginCoverImage from '@/assets/images/login-cover-image.png';
 
@@ -14,17 +18,31 @@ import styles from './page.module.scss';
 
 function LoginPage() {
 
+  const router = useRouter();
+
+  const [loading, setLoading] = useState(false);
+
   const formik = useFormik({
     initialValues: {
       email: '',
       password: ''
     },
     validate: () => { },
-    onSubmit: () => {
-      alert(JSON.stringify(formikValues));
-    }
+    onSubmit: handleSubmitForm
   });
   const formikValues = formik.values;
+
+  async function handleSubmitForm() {
+    setLoading(true);
+
+    const response = await userLogin(formikValues);
+
+    if (response!.data.statusCode === 200) {
+      router.push('/profile');
+    }
+
+    setLoading(false);
+  }
 
   function renderRegisterNowLinkControl() {
 
@@ -64,6 +82,14 @@ function LoginPage() {
   }
 
   function renderLoginForm() {
+
+    if (loading === true) {
+      return (
+        <div className={styles.spinnerContainer}>
+          <Spinner />
+        </div>
+      );
+    }
 
     const singInControlAttributes = {
       className: 'application-themed-button',
