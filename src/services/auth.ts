@@ -39,3 +39,17 @@ export async function userLogin(params: IUserLoginModel) {
     toast.error(messages.internalServerError);
   }
 }
+
+export async function userLogout() {
+
+  try {
+
+    const response = await axios.get('/api/users/logout');
+    toast.success(response.data.message);
+
+    return response;
+
+  } catch (error) {
+    toast.error(messages.internalServerError);
+  }
+}
