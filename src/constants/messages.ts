@@ -8,7 +8,8 @@ const messages = {
   userAccountSuccessfullyCreated: 'User account successfully created',
   internalServerError: 'Internal Server Error',
   userWithThisEmailNotExists: 'User with this email does not exists',
-  loginSuccessful: 'Login Successful'
+  loginSuccessful: 'Login Successful',
+  logoutSuccessful: 'Logout Successful'
 };
 
 export default messages;

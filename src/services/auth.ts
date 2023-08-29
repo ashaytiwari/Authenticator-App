@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-import { IUserLoginModel, IUserSignupModel } from "@/interfaces/dataModels/users";
+import { IUserLoginModel, IUserSignupModel } from "@/interfaces/modelInterfaces/users";
 import messages from "@/constants/messages";
 
 export async function userSignup(params: IUserSignupModel) {
