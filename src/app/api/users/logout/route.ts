@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
 
   try {
 
-    const response: NextResponse = ResponseHandler.success(messages.logoutSuccessful, null);
+    const response: NextResponse = ResponseHandler.success(messages.logoutSuccessful);
 
     response.cookies.set('token', '', { httpOnly: true, expires: new Date(0) });
 

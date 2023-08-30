@@ -1,13 +1,22 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { userLogout } from '@/services/auth';
+import { getMyProfile } from '@/services/users';
 
 function ProfilePage() {
 
   const router = useRouter();
+
+  useEffect(() => {
+    loadMyProfile();
+  }, []);
+
+  async function loadMyProfile() {
+    const response = await getMyProfile();
+  }
 
   async function handleLogout() {
 

@@ -9,7 +9,8 @@ const messages = {
   internalServerError: 'Internal Server Error',
   userWithThisEmailNotExists: 'User with this email does not exists',
   loginSuccessful: 'Login Successful',
-  logoutSuccessful: 'Logout Successful'
+  logoutSuccessful: 'Logout Successful',
+  success: 'Success'
 };
 
 export default messages;

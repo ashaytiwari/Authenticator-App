@@ -8,3 +8,9 @@ export interface IUserLoginModel {
   email: string,
   password: string
 }
+
+export interface ITokenDataModel {
+  _id: string,
+  email: string,
+  username: string
+}
