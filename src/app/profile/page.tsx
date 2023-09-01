@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation';
 import { userLogout } from '@/services/auth';
 import { getMyProfile } from '@/services/users';
 
+import Navbar from '@/components/generics/navbar/Navbar';
+
 function ProfilePage() {
 
   const router = useRouter();
@@ -35,7 +37,7 @@ function ProfilePage() {
 
   return (
     <div>
-      <button {...logoutButtonAttributes}>Logout</button>
+      <Navbar />
     </div>
   );
 }
