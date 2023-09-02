@@ -1,14 +1,48 @@
 .navbarMain {
   padding: 30px 100px;
+  display: grid;
+  grid-template-columns: max-content auto;
+  justify-content: space-between;
+  align-items: center;
 
   .logoTitle {
     margin: 0;
-    font-size: 30px;
-    font-weight: 800;
+    font-size: 28px;
+    font-weight: 600;
     color: var(--application-primary-color);
 
     span {
-      color: var(--application-tertiary-color);
+      color: var(--application-text-color);
+    }
+  }
+
+  .navbarControls {
+    display: grid;
+    grid-template-columns: auto 100px;
+    column-gap: 25px;
+    align-items: center;
+
+    .navbarLinksContainer {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
+      column-gap: 30px;
+      align-items: center;
+
+      .navbarLink {
+        font-size: 18px;
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--application-tertiary-color);
+
+        &.active {
+          color: var(--application-primary-color);
+        }
+      }
+    }
+
+    .logoutIcon {
+      margin-right: 10px;
     }
   }
 }

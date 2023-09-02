@@ -27,4 +27,9 @@
   &:active {
     background-color: var(--application-primary-color);
   }
+
+  &:disabled {
+    background-color: var(--application-tertiary-color);
+    cursor: not-allowed;
+  }
 }
