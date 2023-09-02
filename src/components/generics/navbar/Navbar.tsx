@@ -3,11 +3,14 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
 import { PulseLoader } from 'react-spinners';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import navbarLinks from '@/constants/json/navbar-links';
 
-import styles from './Navbar.module.scss';
 import { userLogout } from '@/services/auth';
+
+import styles from './Navbar.module.scss';
 
 const Navbar = () => {
 
@@ -15,6 +18,7 @@ const Navbar = () => {
   const router = useRouter();
 
   const [loading, setLoading] = useState(false);
+  const [displayMobileMenuControls, setDisplayMobileMenuControls] = useState(false);
 
   async function handleLogout() {
 
@@ -85,13 +89,48 @@ const Navbar = () => {
     return <button {...logoutButtonControlAttributes}>{contentNode}</button>;
   }
 
-  return (
-    <div className={styles.navbarMain}>
-      <label className={styles.logoTitle}>Auth <span>App</span></label>
+  function renderNavbarControls() {
+    return (
       <div className={styles.navbarControls}>
         {renderNavbarLinks()}
         {renderLogoutControl()}
       </div>
+    );
+  }
+
+  function renderMobileNavbar() {
+
+    const menuControlAttributes = {
+      className: styles.menuControl,
+      onClick() {
+        setDisplayMobileMenuControls((_displayControls) => !_displayControls);
+      }
+    };
+
+    return (
+      <div className={styles.mobileNavbarContainer}>
+        <div className={styles.mobileNavbar}>
+          <label className={styles.logoTitle}>Auth <span>App</span></label>
+          <button {...menuControlAttributes}><FontAwesomeIcon icon={faBars} /></button>
+        </div>
+        {displayMobileMenuControls === true && renderNavbarControls()}
+      </div>
+    );
+  }
+
+  function renderDesktopNavbar() {
+    return (
+      <div className={styles.desktopNavbar}>
+        <label className={styles.logoTitle}>Auth <span>App</span></label>
+        {renderNavbarControls()}
+      </div>
+    );
+  }
+
+  return (
+    <div className={styles.navbarMain}>
+      {renderMobileNavbar()}
+      {renderDesktopNavbar()}
     </div>
   );
 

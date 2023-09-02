@@ -1,9 +1,37 @@
+@import '@/styles/media-query.scss';
+
 .navbarMain {
   padding: 30px 100px;
-  display: grid;
-  grid-template-columns: max-content auto;
-  justify-content: space-between;
-  align-items: center;
+
+  .desktopNavbar {
+    display: grid;
+    grid-template-columns: max-content auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mobileNavbarContainer {
+    display: none;
+
+    .mobileNavbar {
+      display: grid;
+      grid-template-columns: max-content auto;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+
+      .menuControl {
+        width: 40px;
+        height: 40px;
+        outline: none;
+        border: none;
+        background-color: var(--application-secondary-color);
+        color: var(--application-primary-color);
+        border-radius: 5px;
+        font-size: 17px;
+      }
+    }
+  }
 
   .logoTitle {
     margin: 0;
@@ -43,6 +71,44 @@
 
     .logoutIcon {
       margin-right: 10px;
+    }
+  }
+}
+
+@include medium-screen {
+  .navbarMain {
+    padding: 30px;
+  }
+}
+
+@include mini-screen {
+  .navbarMain {
+    .desktopNavbar {
+      display: none;
+    }
+
+    .mobileNavbarContainer {
+      display: grid;
+    }
+
+    .navbarControls {
+      grid-template-columns: auto;
+      column-gap: 0;
+      grid-template-rows: min-content;
+      row-gap: 10px;
+      background-color: var(--application-secondary-color);
+      padding: 10px 20px 20px 20px;
+      border-radius: 10px;
+
+      .navbarLinksContainer {
+        grid-auto-flow: row;
+        row-gap: 10px;
+        width: 100%;
+
+        .navbarLink {
+          padding: 10px 0;
+        }
+      }
     }
   }
 }
