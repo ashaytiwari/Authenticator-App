@@ -4,10 +4,12 @@ import bcrypt from 'bcryptjs';
 import { connect } from '@/dbConfig/dbConfig';
 import User from '@/models/userModel';
 
+import emailType from '@/constants/emailType';
 import messages from '@/constants/messages';
 
 import { validateEmail, validatePassword } from '@/utilities/validators';
 import ResponseHandler from '@/utilities/responseHandler';
+import sendEmail from '@/utilities/mailer';
 
 connect();
 
@@ -46,6 +48,9 @@ export async function POST(request: NextRequest) {
 
     const newUser = new User({ username, email, password: hashedPassword });
     const savedUser = await newUser.save();
+
+    // sending email verification email
+    await sendEmail(email, emailType.VERIFY, savedUser._id);
 
     return ResponseHandler.success(messages.userAccountSuccessfullyCreated, savedUser);
 

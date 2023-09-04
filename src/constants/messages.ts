@@ -5,12 +5,14 @@ const messages = {
   passwordRequired: 'Password is required',
   passwordMustBeSixChar: 'Password must be six or more characters',
   userAlreadyExists: 'User with this email address already exists',
-  userAccountSuccessfullyCreated: 'User account successfully created',
+  userAccountSuccessfullyCreated: 'User account successfully created. Verification Email has been sent to your registered account.',
   internalServerError: 'Internal Server Error',
   userWithThisEmailNotExists: 'User with this email does not exists',
   loginSuccessful: 'Login Successful',
   logoutSuccessful: 'Logout Successful',
-  success: 'Success'
+  success: 'Success',
+  eitherUserNotFoundOrTokenGetExpired: 'Either User not found or token get expired, Try again!',
+  emailVerifiedSuccessfully: 'Email verified successfully'
 };
 
 export default messages;
