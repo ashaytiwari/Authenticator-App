@@ -14,3 +14,7 @@ export interface ITokenDataModel {
   email: string,
   username: string
 }
+
+export interface IVerifyEmailParamsModel {
+  token: string
+}

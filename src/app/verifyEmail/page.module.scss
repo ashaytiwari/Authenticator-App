@@ -1,0 +1,31 @@
+#verifyEmailMain {
+  min-height: 100vh;
+  background-color: var(--application-secondary-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .coverImageWrapper {
+    width: 40%;
+  }
+
+  .verifyingMessage {
+    color: var(--application-tertiary-color);
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 0.67px;
+  }
+
+  .contentContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .goToLoginControl {
+    width: 200px;
+    text-decoration: none;
+  }
+}
