@@ -15,7 +15,9 @@ const messages = {
   emailVerifiedSuccessfully: 'Email verified successfully',
   userNotFound: 'User not found!',
   emailHasBeenSentToYourRegisteredAccount: 'Email has been sent to your registered account to reset your password',
-  passwordResetSuccessfully: 'Password reset successfully'
+  passwordResetSuccessfully: 'Password reset successfully',
+  passwordAndConfirmPasswordDidNotMatched: 'Password and Confirm password did not matched',
+  invalidToken: 'Invalid Token'
 };
 
 export default messages;

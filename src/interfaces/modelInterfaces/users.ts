@@ -22,3 +22,8 @@ export interface IVerifyEmailParamsModel {
 export interface IForgotPasswordModel {
   email: string
 }
+
+export interface IResetPasswordModel {
+  password: string,
+  token: string
+}
