@@ -1,3 +1,5 @@
+@import '@/styles/media-query.scss';
+
 #forgotPasswordMain {
   background-color: var(--application-secondary-background-color);
   display: flex;
@@ -48,6 +50,24 @@
           color: var(--application-primary-color);
         }
       }
+    }
+  }
+}
+
+@include medium-screen {
+  #forgotPasswordMain {
+    #forgotPasswordCard {
+      width: 50%;
+    }
+  }
+}
+
+@include small-screen {
+  #forgotPasswordMain {
+    padding: 0 20px;
+
+    #forgotPasswordCard {
+      width: 90%;
     }
   }
 }
