@@ -12,7 +12,7 @@ import ResponseHandler from "@/utilities/responseHandler";
 
 connect();
 
-export async function Post(request: NextRequest) {
+export async function POST(request: NextRequest) {
 
   try {
 

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-import { IUserLoginModel, IUserSignupModel, IVerifyEmailParamsModel } from "@/interfaces/modelInterfaces/users";
+import { IForgotPasswordModel, IUserLoginModel, IUserSignupModel, IVerifyEmailParamsModel } from "@/interfaces/modelInterfaces/users";
 import messages from "@/constants/messages";
 
 export async function userSignup(params: IUserSignupModel) {
@@ -63,6 +63,25 @@ export async function verifyEmail(params: IVerifyEmailParamsModel) {
       toast.success(response.data.message);
     } else {
       toast.error(response.data.message);
+    }
+
+    return response;
+
+  } catch (error) {
+    toast.error(messages.internalServerError);
+  }
+}
+
+export async function forgotPassword(params: IForgotPasswordModel) {
+  try {
+
+    const response = await axios.post('/api/users/forgotPassword', params);
+    const data = response.data;
+
+    if (data.statusCode === 200) {
+      toast.success(data.message);
+    } else {
+      toast.error(data.message);
     }
 
     return response;

@@ -18,3 +18,7 @@ export interface ITokenDataModel {
 export interface IVerifyEmailParamsModel {
   token: string
 }
+
+export interface IForgotPasswordModel {
+  email: string
+}
