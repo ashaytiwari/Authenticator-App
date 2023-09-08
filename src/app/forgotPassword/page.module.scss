@@ -1,0 +1,53 @@
+#forgotPasswordMain {
+  background-color: var(--application-secondary-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  #forgotPasswordCard {
+    padding: 30px 20px;
+    background-color: var(--application-white-color);
+    width: 25%;
+    border-radius: 15px;
+    box-shadow: var(--application-box-shadow);
+
+    .lockAuthImageWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .forgotPasswordForm {
+      display: grid;
+      grid-template-rows: auto;
+      row-gap: 20px;
+
+      .formHeading {
+        margin: 0;
+        font-size: 25px;
+        text-align: center;
+        color: var(--application-text-color);
+      }
+
+      .formText {
+        margin: 0 0 25px 0;
+        text-align: center;
+        color: var(--application-tertiary-color);
+        font-size: 14px;
+      }
+
+      .backToLoginControl {
+        text-align: center;
+        text-decoration: none;
+        font-size: 15px;
+        color: var(--application-text-color);
+
+        span {
+          color: var(--application-primary-color);
+        }
+      }
+    }
+  }
+}

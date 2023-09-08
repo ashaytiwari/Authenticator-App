@@ -69,7 +69,7 @@ function LoginPage() {
     };
 
     const forgotPasswordControlAttributes = {
-      href: '/',
+      href: '/forgotPassword',
       className: styles.forgotPasswordLink
     };
 
