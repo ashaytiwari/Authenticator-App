@@ -14,7 +14,8 @@ const messages = {
   eitherUserNotFoundOrTokenGetExpired: 'Either User not found or token get expired, Try again!',
   emailVerifiedSuccessfully: 'Email verified successfully',
   userNotFound: 'User not found!',
-  emailHasBeenSentToYourRegisteredAccount: 'Email has been sent to your registered account to reset your password'
+  emailHasBeenSentToYourRegisteredAccount: 'Email has been sent to your registered account to reset your password',
+  passwordResetSuccessfully: 'Password reset successfully'
 };
 
 export default messages;

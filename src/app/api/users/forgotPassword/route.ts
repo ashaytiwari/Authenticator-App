@@ -32,6 +32,6 @@ export async function POST(request: NextRequest) {
     return ResponseHandler.success(messages.emailHasBeenSentToYourRegisteredAccount);
 
   } catch (error) {
-    return ResponseHandler.serverError(messages.internalServerError);
+    return ResponseHandler.serverError(messages.internalServerError, error);
   }
 }

@@ -21,6 +21,6 @@ export async function GET(request: NextRequest) {
     return ResponseHandler.success(messages.success, user);
 
   } catch (error) {
-    return ResponseHandler.serverError(messages.internalServerError);
+    return ResponseHandler.serverError(messages.internalServerError, error);
   }
 }
