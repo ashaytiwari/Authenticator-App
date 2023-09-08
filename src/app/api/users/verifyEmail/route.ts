@@ -16,8 +16,6 @@ export async function POST(request: NextRequest) {
     const requestBody = await request.json();
     const { token } = requestBody;
 
-    console.log(token);
-
     const user = await User.findOne({ verifyToken: token, verifyTokenExpiry: { $gt: Date.now() } });
     if (!user) {
       return ResponseHandler.unauthorized(messages.eitherUserNotFoundOrTokenGetExpired);

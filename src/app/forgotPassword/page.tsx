@@ -63,7 +63,7 @@ function ForgotPassword() {
 
     return (
       <div className={styles.forgotPasswordForm}>
-        <h3 className={styles.formHeading}>Forgot your Password?</h3>
+        <h3 className={styles.formHeading}>Forgot your password?</h3>
         <p className={styles.formText}>Please enter the email address associated with your account and We will email you a link to reset your password.</p>
         <input {...emailControlAttributes} />
         <button {...sendRequestControlAttributes}>Send Request</button>
