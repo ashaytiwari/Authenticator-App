@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     // checking password validity
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) {
-      return ResponseHandler.validationError(messages.passwordMustBeSixChar);
+      return ResponseHandler.validationError(messages.passwordMismatched);
     }
 
     // create token data

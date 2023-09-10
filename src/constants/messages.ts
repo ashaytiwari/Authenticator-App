@@ -4,6 +4,7 @@ const messages = {
   emailInvalid: 'Invalid email',
   passwordRequired: 'Password is required',
   passwordMustBeSixChar: 'Password must be six or more characters',
+  passwordMismatched: 'Password mismatched',
   userAlreadyExists: 'User with this email address already exists',
   userAccountSuccessfullyCreated: 'User account successfully created. Verification Email has been sent to your registered account.',
   internalServerError: 'Internal Server Error',
